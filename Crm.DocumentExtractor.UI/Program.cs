@@ -42,7 +42,7 @@ namespace Crm.DocumentExtractor.UI
             }
         }
 
-        private static void Upload(OrganizationServiceManager osmSource, OrganizationServiceManager osmDestination, string templatePath = "")
+        private static void Upload(OrganizationServiceManager osmSource, OrganizationServiceManager osmDestination)
         {
             var templates = GetTemplates(osmSource);
             Console.WriteLine($"\r\nFound {templates.Count} docx templates to upload");
@@ -61,7 +61,7 @@ namespace Crm.DocumentExtractor.UI
                         int? oldEtc = GetEntityTypeCode(osmSource, etc);
                         int? newEtc = GetEntityTypeCode(osmDestination, etc);
 
-                        string fileName = ReRouteEtcViaOpenXML(templatePath, template, name, etc, oldEtc, newEtc);
+                        string fileName = ReRouteEtcViaOpenXML(template, name, etc, oldEtc, newEtc);
 
                         template["associatedentitytypecode"] = newEtc;
                         template["content"] = Convert.ToBase64String(File.ReadAllBytes(fileName));
@@ -92,7 +92,7 @@ namespace Crm.DocumentExtractor.UI
                 }));
         }
 
-        private static string ReRouteEtcViaOpenXML(string templatePath, Entity template, string name, string etc, int? oldEtc, int? newEtc)
+        private static string ReRouteEtcViaOpenXML(Entity template, string name, string etc, int? oldEtc, int? newEtc)
         {
             byte[] content = Convert.FromBase64String(template.GetAttributeValue<string>("content"));
 
@@ -126,7 +126,7 @@ namespace Crm.DocumentExtractor.UI
                             crappy = crappy.Replace(toFind, replaceWith);
                             Console.WriteLine($"Replaced '{toFind}' with '{replaceWith}' inside \\customXml\\*.xml {name}");
 
-                            using (var stream = new MemoryStream(Encoding.ASCII.GetBytes(crappy)))
+                            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(crappy)))
                             {
                                 a.FeedData(stream);
                             }
