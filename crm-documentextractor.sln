@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_libs", "_libs", "{A105BAC5-C008-449F-B80A-C60194570941}"
+	ProjectSection(SolutionItems) = preProject
+		_libs\DocumentFormat.OpenXml.dll = _libs\DocumentFormat.OpenXml.dll
+		_libs\Microsoft.Crm.Sdk.Proxy.dll = _libs\Microsoft.Crm.Sdk.Proxy.dll
+		_libs\Microsoft.IdentityModel.dll = _libs\Microsoft.IdentityModel.dll
+		_libs\Microsoft.Xrm.Sdk.dll = _libs\Microsoft.Xrm.Sdk.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crm.DocumentExtractor.UI", "Crm.DocumentExtractor.UI\Crm.DocumentExtractor.UI.csproj", "{FA79EA1B-B9BC-4E2C-ABA9-B8365697A5A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA79EA1B-B9BC-4E2C-ABA9-B8365697A5A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA79EA1B-B9BC-4E2C-ABA9-B8365697A5A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA79EA1B-B9BC-4E2C-ABA9-B8365697A5A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA79EA1B-B9BC-4E2C-ABA9-B8365697A5A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
